@@ -6,6 +6,9 @@ const requiredChecks = [
   { label: "heading", test: /<h1[^>]*>Current Time<\/h1>/i },
   { label: "clock target", test: /id="time"/i },
   { label: "date target", test: /id="date"/i },
+  { label: "pig container", test: /class="pig pig-corner"/i },
+  { label: "pig head", test: /class="pig-head"/i },
+  { label: "pig snout", test: /class="snout"/i },
 ];
 
 const missing = requiredChecks.filter((entry) => !entry.test.test(html));

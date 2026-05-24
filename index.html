@@ -70,10 +70,200 @@
         color: var(--muted);
         font-size: 1rem;
       }
+
+      .pig {
+        position: absolute;
+      }
+
+      .pig-corner {
+        top: 18px;
+        right: 18px;
+        width: 128px;
+        height: 120px;
+        transform: rotate(9deg);
+      }
+
+      .pig-head {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 114px;
+        height: 104px;
+        border: 4px solid #4b2f36;
+        border-radius: 52% 52% 48% 48%;
+        background: linear-gradient(180deg, #f8b7c3, #ee95a8);
+        transform: translate(-50%, -50%);
+        box-shadow: 0 14px 24px rgba(75, 47, 54, 0.14);
+      }
+
+      .pig-head::before,
+      .pig-head::after {
+        content: "";
+        position: absolute;
+        top: -18px;
+        width: 32px;
+        height: 38px;
+        border: 4px solid #4b2f36;
+        background: linear-gradient(180deg, #f8b7c3, #ee95a8);
+        z-index: -1;
+      }
+
+      .pig-head::before {
+        left: 11px;
+        border-radius: 70% 30% 40% 50%;
+        transform: rotate(-18deg);
+      }
+
+      .pig-head::after {
+        right: 11px;
+        border-radius: 30% 70% 50% 40%;
+        transform: rotate(18deg);
+      }
+
+      .eyes {
+        position: absolute;
+        left: 50%;
+        top: 38px;
+        width: 52px;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .eyes span {
+        width: 10px;
+        height: 14px;
+        border-radius: 50%;
+        background: #4b2f36;
+      }
+
+      .snout {
+        position: absolute;
+        left: 50%;
+        bottom: 18px;
+        width: 48px;
+        height: 34px;
+        border: 4px solid #4b2f36;
+        border-radius: 45%;
+        background: #f7cad3;
+        transform: translateX(-50%);
+      }
+
+      .snout::before,
+      .snout::after {
+        content: "";
+        position: absolute;
+        top: 9px;
+        width: 6px;
+        height: 10px;
+        border-radius: 50%;
+        background: #4b2f36;
+      }
+
+      .snout::before {
+        left: 12px;
+      }
+
+      .snout::after {
+        right: 12px;
+      }
+
+      .cheeks {
+        position: absolute;
+        inset: 0;
+      }
+
+      .cheeks::before,
+      .cheeks::after {
+        content: "";
+        position: absolute;
+        top: 54px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.45);
+      }
+
+      .cheeks::before {
+        left: 18px;
+      }
+
+      .cheeks::after {
+        right: 18px;
+      }
+
+      @media (max-width: 640px) {
+        .pig-corner {
+          top: 14px;
+          right: 14px;
+          width: 96px;
+          height: 92px;
+        }
+
+        .pig-head {
+          width: 86px;
+          height: 78px;
+          border-width: 3px;
+        }
+
+        .pig-head::before,
+        .pig-head::after {
+          top: -13px;
+          width: 24px;
+          height: 28px;
+          border-width: 3px;
+        }
+
+        .eyes {
+          top: 28px;
+          width: 38px;
+        }
+
+        .eyes span {
+          width: 8px;
+          height: 11px;
+        }
+
+        .snout {
+          bottom: 12px;
+          width: 36px;
+          height: 26px;
+          border-width: 3px;
+        }
+
+        .snout::before,
+        .snout::after {
+          top: 7px;
+          width: 5px;
+          height: 8px;
+        }
+
+        .snout::before {
+          left: 9px;
+        }
+
+        .snout::after {
+          right: 9px;
+        }
+
+        .cheeks::before,
+        .cheeks::after {
+          top: 40px;
+          width: 10px;
+          height: 10px;
+        }
+      }
     </style>
   </head>
   <body>
     <main>
+      <div class="pig pig-corner" aria-hidden="true">
+        <div class="pig-head">
+          <div class="eyes"><span></span><span></span></div>
+          <div class="snout"></div>
+          <div class="cheeks"></div>
+        </div>
+      </div>
       <p class="eyebrow">Live Clock</p>
       <h1>Current Time</h1>
       <p id="time" aria-live="polite"></p>
